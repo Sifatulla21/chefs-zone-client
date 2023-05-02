@@ -28,12 +28,21 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </Col>
-            {
-                recipes.map(recipe=><Recipes
-                    key={recipe.r_id}
-                    recipe={recipe}
-                ></Recipes>)
-            }
+                <div>
+                <Row sm={1} md={2} lg={3} className="g-4 mt-5">
+
+                    {
+                        recipes.map(recipe=>
+                            <Col>
+                        <Recipes
+                            key={recipe.r_id}
+                            recipe={recipe}
+                        ></Recipes>
+                        </Col>
+                        )
+                    }
+                </Row>
+                </div>
             
             </Row>
         </div>
