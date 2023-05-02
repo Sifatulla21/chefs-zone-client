@@ -14,7 +14,7 @@ const ChefCard = () => {
     }, []);
     return (
         <Container>
-             <Row xs={1} md={2} lg={3} className="g-4 mt-5">
+             <Row sm={1} md={2} lg={3} className="g-4 mt-5">
             {
                 chefData.map(chef => <div className="mt-3" key={chef.c_id}>
                    
