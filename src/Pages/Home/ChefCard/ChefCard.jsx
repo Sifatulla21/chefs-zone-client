@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import './ChefCard.css'
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { FaHeart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
@@ -12,27 +13,30 @@ const ChefCard = () => {
             .catch(error => console.error(error))
     }, []);
     return (
-        <div>
+        <Container>
+             <Row xs={1} md={2} lg={3} className="g-4 mt-5">
             {
-                chefData.map(chef => <div className="mt-3">
-                    <Row xs={1} md={2} lg={3} className="g-4">
-                            <Col>
-                                <Card>
-                                    <Card.Img variant="top" src={chef.c_image} />
-                                    <Card.Body>
-                                        <Card.Title>{chef.c_name}</Card.Title>
-                                        <Card.Text>
-                                            This is a longer card with supporting text below as a natural
-                                            lead-in to additional content. This content is a little bit
-                                            longer.
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                    </Row>
+                chefData.map(chef => <div className="mt-3" key={chef.c_id}>
+                   
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src={chef.c_image} />
+                                <Card.Body>
+                                    <Card.Title>{chef.c_name}</Card.Title>
+                                    <Card.Text>
+                                        <span className="text-danger">{chef.year_of_experience} </span> Years of experience  <br />
+                                        <span className="text-danger">{chef.num_of_recipes}</span> Recipes:  <br />
+                                        <FaHeart className="text-danger"></FaHeart> {chef.num_of_likes}
+                                    </Card.Text>
+                                    <Link to={`/chef/${chef.c_id}`}><Button variant="primary">View Recipes Button</Button></Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    
                 </div>)
             }
-        </div>
+            </Row>
+        </Container>
     );
 };
 
