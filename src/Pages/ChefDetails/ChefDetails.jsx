@@ -33,9 +33,9 @@ const ChefDetails = () => {
 
                     {
                         recipes.map(recipe=>
-                            <Col>
+                            <Col key={recipe.r_id}>
                         <Recipes
-                            key={recipe.r_id}
+                            
                             recipe={recipe}
                         ></Recipes>
                         </Col>
