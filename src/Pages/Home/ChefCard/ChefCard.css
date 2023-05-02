@@ -1,0 +1,8 @@
+.c-grid{
+    display: flex;
+    border: 2px solid red;
+    height: 100px;
+}
+.c-flex{
+    display: flex;
+}
