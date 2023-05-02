@@ -7,7 +7,7 @@ const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/data')
+        fetch('http://localhost:5000/chef')
             .then(res => res.json())
             .then(data => setChefData(data))
             .catch(error => console.error(error))
@@ -28,7 +28,7 @@ const ChefCard = () => {
                                         <span className="text-danger">{chef.num_of_recipes}</span> Recipes:  <br />
                                         <FaHeart className="text-danger"></FaHeart> {chef.num_of_likes}
                                     </Card.Text>
-                                    <Link to={`/chef/${chef.c_id}`}><Button variant="primary">View Recipes Button</Button></Link>
+                                    <Link to={`/${chef.c_id}`}><Button variant="primary">View Recipes Button</Button></Link>
                                 </Card.Body>
                             </Card>
                         </Col>

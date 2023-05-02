@@ -12,9 +12,8 @@ const Main = () => {
            {/* <ChefCard></ChefCard> */}
             <Container>
                 <Row>
-                    <Col lg={9} sm={1}><Outlet></Outlet></Col>
-                    <Col lg={9} sm={1}><ChefCard></ChefCard></Col>
-                    
+                    {/* <Col lg={12} sm={1}><ChefCard></ChefCard></Col>     */}
+                    <Col lg={12} sm={1}><Outlet></Outlet></Col>    
                 </Row>
             </Container>
             <Footer></Footer>
