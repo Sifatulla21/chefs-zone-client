@@ -15,7 +15,7 @@ const Recipes = ({ recipe }) => {
     const { r_name, r_image, ingredients, cooking_method, rating } = recipe;
     return (
         <div>
-                <Card>
+                <Card className="w-75">
                     <Card.Img variant="top" src={r_image} />
                     <Card.Body className="d-flex align-items-center">
                         <Card.Title className="me-auto">{r_name}</Card.Title>

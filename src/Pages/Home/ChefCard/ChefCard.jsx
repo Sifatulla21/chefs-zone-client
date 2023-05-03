@@ -17,7 +17,7 @@ const ChefCard = () => {
         return <Spinner className="position-absolute top-50 start-50" animation="grow" variant="info" />;
     }
     return (
-        <Container>
+        <Container className="mb-5">
             <Row sm={1} md={1} lg={3} className="g-4 mt-5">
                 {
                     chefData.map(chef => <div className="mt-3" key={chef.c_id}>

@@ -27,7 +27,7 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </Col>
-                <div>
+                <div className="mb-5 d-flex justify-content-center">
                 <Row xs={1} sm={1} md={1} lg={2} className="g-4 mt-5">
 
                     {

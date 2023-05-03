@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
+import logo from '../../../../public/logo.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
@@ -21,7 +21,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">Chefs Zone</Navbar.Brand>
+                <Navbar.Brand href="/">Chefs Zone</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">

@@ -5,7 +5,7 @@ import logo from '../../../../public/vite.svg';
 
 function Footer() {
   return (
-    <footer className="bg-dark py-4 position-absolute" style={{ position: "absolute", bottom: "0", width: "100%" }}>
+    <footer className="bg-dark py-4" style={{ width: "100%" }}>
       <Container>
         <Row>
           <Col lg={4}>
