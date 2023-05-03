@@ -4,11 +4,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Login = () => {
-    const {signIn,user} = useContext(AuthContext);
-    console.log(user);
+    const {signIn,user,googleSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    const handleGoogleSignIn =() =>{
+        googleSignIn();
+    }
     const handleLogin = event =>{
         event.preventDefault();
         const form = event.target;
@@ -51,6 +53,7 @@ const Login = () => {
                 <Form.Text className="text-danger">
                 </Form.Text>
             </Form>
+            <Button onClick={handleGoogleSignIn} variant="outline-primary">Google</Button>
         </Container>
     );
 };

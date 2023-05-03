@@ -8,7 +8,7 @@ const Header = () => {
     const {user,logOut} = useContext(AuthContext);
     const tooltip = (
         <Tooltip>
-          Hello
+          {user?.displayName}
         </Tooltip>
       );
     const handleLogOut = () =>{
@@ -37,7 +37,7 @@ const Header = () => {
                           >
                             <img data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"
                             style={{height:'30px'}}
-                            className="rounded-pill me-2" src={user.photoURL
+                            className="rounded-pill me-2" src={user?.photoURL
                             } alt="" />
                           </OverlayTrigger>
                              
