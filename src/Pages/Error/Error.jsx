@@ -1,9 +1,9 @@
 import React from 'react';
-
+import error from '../../../public/404-error-template-3.webp';
 const Error = () => {
     return (
         <div>
-            <img src="https://www.crazydomains.co.nz/help/404-not-found-error-explained/?image_id=2979" alt="" />
+            <img className="img-fluid w-100 h-100" src={error} alt="" />
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
@@ -12,6 +12,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
     const handleGoogleSignIn = () => {
         googleSignIn();
+           
     }
     const handleGitHubSignIn = () => {
         gitHubSignIn();
@@ -56,7 +57,7 @@ const Login = () => {
                     Login
                 </Button><br />
                 <Form.Text className="text-secondary">
-                    Dont Have An Account? <Link to="/register">Register</Link>
+                    Dont Have An Account? <Link to="/register/">Register</Link>
                 </Form.Text>
                 <Form.Text className="text-success">
                 </Form.Text>

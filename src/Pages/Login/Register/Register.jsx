@@ -76,7 +76,7 @@ const Register = () => {
                 </Button>
                 <br />
                 <Form.Text className="text-secondary">
-                   Already Register? <Link to="/login">Login</Link>
+                   Already Register? <Link to="/login/">Login</Link>
                 </Form.Text>
                 <h6 className="text-center">Or Login With</h6>
                 <hr />

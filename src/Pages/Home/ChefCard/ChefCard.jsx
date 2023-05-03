@@ -18,7 +18,7 @@ const ChefCard = () => {
     }
     return (
         <Container>
-            <Row sm={1} md={2} lg={3} className="g-4 mt-5">
+            <Row sm={1} md={1} lg={3} className="g-4 mt-5">
                 {
                     chefData.map(chef => <div className="mt-3" key={chef.c_id}>
 
@@ -33,7 +33,7 @@ const ChefCard = () => {
                                         <FaHeart className="text-danger"></FaHeart> {chef.num_of_likes}
                                     </Card.Text>
                                     <Card.Body className="d-flex justify-content-center">
-                                        <Link to={`/${chef.c_id}`}><Button variant="outline-danger" size="lg">View Recipes Button <FaLongArrowAltRight></FaLongArrowAltRight></Button></Link>
+                                        <Link to={`/details/${chef.c_id}/`}><Button variant="outline-danger" size="lg">View Recipes Button <FaLongArrowAltRight></FaLongArrowAltRight></Button></Link>
                                     </Card.Body>
                                 </Card.Body>
                             </Card>
