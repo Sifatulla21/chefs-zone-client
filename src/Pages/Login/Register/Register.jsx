@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUser } = useContext(AuthContext);
+    
     const [accepted,setAccepted] = useState(false);
     const handleRegister = event => {
         event.preventDefault();
@@ -14,9 +15,10 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         createUser(email,password)
-        .then(result => {
-           const createdUser = result.user;
-        }) 
+        .then(result => updateUser(result.user,name,photo)
+        .catch(error =>{
+            console.log(error);
+        })) 
         .catch(error =>{
             console.log(error);
         })
@@ -57,7 +59,8 @@ const Register = () => {
                 </Form.Group>
                 <Button disabled={!accepted} variant="primary" type="submit">
                     Register
-                </Button><br />
+                </Button>
+                <br />
                 <Form.Text className="text-secondary">
                    Already Register? <Link to="/login">Login</Link>
                 </Form.Text>

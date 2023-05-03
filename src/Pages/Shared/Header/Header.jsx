@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Header = () => {
     const {user,logOut} = useContext(AuthContext);
+    const tooltip = (
+        <Tooltip>
+          Hello
+        </Tooltip>
+      );
     const handleLogOut = () =>{
       logOut()
       .then()
@@ -26,9 +31,16 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         {
-                            user && <FaUserCircle className="me-2 text-white"
-                                style={{ fontSize: '2rem' }}
-                            ></FaUserCircle>
+                            user && <OverlayTrigger
+                            placement="bottom"
+                            overlay={tooltip}
+                          >
+                            <img data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"
+                            style={{height:'30px'}}
+                            className="rounded-pill me-2" src={user.photoURL
+                            } alt="" />
+                          </OverlayTrigger>
+                             
                         }
                         {
                             user ? <Button variant="secondary" onClick={handleLogOut}>Logout</Button> : <Link to="/login"><Button variant="secondary">Login</Button></Link>

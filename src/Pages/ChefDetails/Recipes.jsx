@@ -3,13 +3,16 @@ import { Button, Card, ListGroup } from 'react-bootstrap';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Recipes = ({ recipe }) => {
     const [loved, useLoved] = useState(true);
     const handleFavourite = () =>{
+        toast.success('Added To Favourite!');
         useLoved(false);
     }
-    const { r_id, r_name, r_image, ingredients, cooking_method, rating } = recipe;
+    const { r_name, r_image, ingredients, cooking_method, rating } = recipe;
     return (
         <div>
                 <Card>
@@ -33,6 +36,7 @@ const Recipes = ({ recipe }) => {
                         <Link to=""><Button  disabled={!loved} onClick={handleFavourite} variant="outline-danger" size="lg"><FaHeart></FaHeart> Add To Favourite</Button></Link>
                     </Card.Body>
                 </Card>
+                <ToastContainer />
         </div>
     );
 };

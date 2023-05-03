@@ -4,7 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn,user} = useContext(AuthContext);
+    console.log(user);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
