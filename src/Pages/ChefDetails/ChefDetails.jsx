@@ -7,7 +7,6 @@ import Recipes from './Recipes';
 const ChefDetails = () => {
     const chef = useLoaderData();
     const { c_image, c_name, year_of_experience, num_of_recipes, num_of_likes, c_description, recipes } = chef;
-    // console.log(c_name);
     return (
         <div>
             <Row sm={1} md={1} lg={1} className="g-4 mt-5">
@@ -15,7 +14,7 @@ const ChefDetails = () => {
                     <div className="mt-3 d-flex border border-dark rounded">
                     
                         <div>
-                            <img className="w-75 rounded" src={c_image} alt="" />
+                            <img className="img-fluid rounded" src={c_image} alt="" />
                         </div>
                         <div className="d-flex flex-column align-items-center mt-3">
                             <h1>{c_name}</h1> <br />
@@ -29,7 +28,7 @@ const ChefDetails = () => {
                     </div>
                 </Col>
                 <div>
-                <Row sm={1} md={2} lg={3} className="g-4 mt-5">
+                <Row sm={1} md={1} lg={3} className="g-4 mt-5">
 
                     {
                         recipes.map(recipe=>

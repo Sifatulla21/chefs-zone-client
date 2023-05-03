@@ -36,8 +36,8 @@ const Header = () => {
                             overlay={tooltip}
                           >
                             <img data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom"
-                            style={{height:'30px'}}
-                            className="rounded-pill me-2" src={user?.photoURL
+                            style={{height:'30px',width:'30px'}}
+                            className="rounded-circle me-2 img-fluid" src={user?.photoURL
                             } alt="" />
                           </OverlayTrigger>
                              

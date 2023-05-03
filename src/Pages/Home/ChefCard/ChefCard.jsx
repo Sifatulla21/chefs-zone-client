@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { FaHeart, FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
-
+    const {loading}= useContext(AuthContext);
     useEffect(() => {
         fetch('http://localhost:5000/chef')
             .then(res => res.json())
             .then(data => setChefData(data))
             .catch(error => console.error(error))
     }, []);
+    if(loading){
+        return <Spinner className="position-absolute top-50 start-50" animation="grow" variant="info" />;
+    }
     return (
         <Container>
             <Row sm={1} md={2} lg={3} className="g-4 mt-5">

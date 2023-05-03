@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
@@ -6,6 +6,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
     const { signIn, user, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+    const [error,setError]= useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -26,7 +27,9 @@ const Login = () => {
                 navigate(from);
             })
             .catch(error => {
-                console.log(error.message);
+                const splitedMessage = error.message.split('/');
+                const splitedError = splitedMessage[1].split(')');
+                setError(splitedError[0]);
             })
     }
     return (
@@ -43,6 +46,9 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" required placeholder="Password" />
                 </Form.Group>
+                <Form.Text className="text-danger">
+                    <h5>{error}</h5>
+                </Form.Text>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
@@ -53,8 +59,6 @@ const Login = () => {
                     Dont Have An Account? <Link to="/register">Register</Link>
                 </Form.Text>
                 <Form.Text className="text-success">
-                </Form.Text>
-                <Form.Text className="text-danger">
                 </Form.Text>
             </Form>
             <div className="d-flex flex-column mt-1">
