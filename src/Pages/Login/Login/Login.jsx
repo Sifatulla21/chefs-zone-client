@@ -2,31 +2,32 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
-    const {signIn,user,googleSignIn, gitHubSignIn} = useContext(AuthContext);
+    const { signIn, user, googleSignIn, gitHubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    const handleGoogleSignIn =() =>{
+    const handleGoogleSignIn = () => {
         googleSignIn();
     }
-    const handleGitHubSignIn = () =>{
+    const handleGitHubSignIn = () => {
         gitHubSignIn();
     }
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        signIn(email,password)
-        .then(result => {
-            const loggedUser = result.user;
-            navigate(from);
-        })
-        .catch(error=>{
-            console.log(error.message);
-        })
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                navigate(from);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <Container className="w-25 mx-auto">
@@ -56,8 +57,10 @@ const Login = () => {
                 <Form.Text className="text-danger">
                 </Form.Text>
             </Form>
-            <Button onClick={handleGoogleSignIn} variant="outline-primary">Google</Button>
-            <Button onClick={handleGitHubSignIn} variant="outline-primary">Git Hub</Button>
+            <div className="d-flex flex-column mt-1">
+                <Button className="mb-2" onClick={handleGoogleSignIn} variant="outline-info"><FaGoogle></FaGoogle> Google</Button>
+                <Button onClick={handleGitHubSignIn} variant="outline-secondary"><FaGithub></FaGithub> Git Hub</Button>
+            </div>
         </Container>
     );
 };

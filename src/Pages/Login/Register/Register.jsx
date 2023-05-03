@@ -2,11 +2,19 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
-    const {createUser, updateUser } = useContext(AuthContext);
+    const {createUser, updateUser, googleSignIn, gitHubSignIn } = useContext(AuthContext);
     
     const [accepted,setAccepted] = useState(false);
+    const [error,setError]= useState('');
+    const handleGoogleSignIn = () => {
+        googleSignIn();
+    }
+    const handleGitHubSignIn = () => {
+        gitHubSignIn();
+    }
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -14,6 +22,9 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        if(password.length<6){
+            setError("Password should be at least 6 characters");
+        }
         createUser(email,password)
         .then(result => updateUser(result.user,name,photo)
         .catch(error =>{
@@ -50,12 +61,15 @@ const Register = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name="password" required placeholder="Password" />
+                    <Form.Text className="text-danger">
+                    <p>{error}</p>
+                </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check
                      onClick={handleAccepted}
                      type="checkbox" name="accept"
-                     label= {<>Accept <Link to="/terms">Terms And Conditions</Link></>} />
+                     label= {<>Accept <Link to="">Terms And Conditions</Link></>} />
                 </Form.Group>
                 <Button disabled={!accepted} variant="primary" type="submit">
                     Register
@@ -64,10 +78,15 @@ const Register = () => {
                 <Form.Text className="text-secondary">
                    Already Register? <Link to="/login">Login</Link>
                 </Form.Text>
+                <h6 className="text-center">Or Login With</h6>
+                <hr />
+                <div className="d-flex flex-column mt-1">
+                <Button className="mb-2" onClick={handleGoogleSignIn} variant="outline-info"><FaGoogle></FaGoogle> Google</Button>
+                <Button onClick={handleGitHubSignIn} variant="outline-secondary"><FaGithub></FaGithub> Git Hub</Button>
+            </div>
                 <Form.Text className="text-success">
                 </Form.Text>
-                <Form.Text className="text-danger">
-                </Form.Text>
+ 
             </Form>
         </Container>
     );
