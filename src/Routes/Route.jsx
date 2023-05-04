@@ -10,6 +10,7 @@ import Register from "../Pages/Login/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import DetailsLayout from "../Layout/DetailsLayout";
 import Blog from "../Pages/Blog/Blog";
+import Terms from "../Pages/Terms/Terms";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path:':id',
                 element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute> ,
-                loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+                loader: ({params}) => fetch(`https://chefs-zone-server-sifatulla21.vercel.app/chef/${params.id}`)
             } 
         ]
     },
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path:'blog',
                 element:<Blog></Blog>
+            }, 
+            {
+                path:'terms',
+                element:<Terms></Terms>
             } 
         ]},
     {

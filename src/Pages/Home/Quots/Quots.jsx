@@ -3,7 +3,7 @@ import { Card, Button, Carousel, Row, Col } from 'react-bootstrap';
 const Quots = () => {
     const [quots, setQuots] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/quote')
+        fetch('https://chefs-zone-server-sifatulla21.vercel.app/quote')
             .then(res => res.json())
             .then(data => setQuots(data))
             .catch(error => console.error(error))
@@ -39,9 +39,6 @@ const Quots = () => {
                     }
                 </Carousel>
             </div>
-
-
-
         </div>
     );
 };

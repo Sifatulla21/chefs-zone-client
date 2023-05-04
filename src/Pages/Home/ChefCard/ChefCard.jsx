@@ -9,7 +9,7 @@ const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
     const { loading } = useContext(AuthContext);
     useEffect(() => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://chefs-zone-server-sifatulla21.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChefData(data))
             .catch(error => console.error(error))

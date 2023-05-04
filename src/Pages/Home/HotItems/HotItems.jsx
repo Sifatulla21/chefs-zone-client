@@ -5,7 +5,7 @@ import { FaHotjar } from 'react-icons/fa';
 const HotItems = () => {
     const [hotItems, setHotItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/hot')
+        fetch('https://chefs-zone-server-sifatulla21.vercel.app/hot')
             .then(res => res.json())
             .then(data => setHotItems(data))
             .catch(error => console.error(error))

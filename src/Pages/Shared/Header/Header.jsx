@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import logo from '../../../../public/logo.png';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import ActiveLink from './ActiveLink/ActiveLink';
+
 
 const Header = () => {
     const {user,logOut} = useContext(AuthContext);
@@ -25,9 +26,8 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mx-auto">
-                        <Link className="text-decoration-none ps-5 text-white" to='/'>Home</Link>
-                        <Link className="text-decoration-none ps-5 text-white" to="/">About</Link>
-                        <Link className="text-decoration-none ps-5 text-white" to="/blog">Blog</Link>
+                        <ActiveLink to='/'>Home</ActiveLink>
+                        <ActiveLink to="/blog">Blog</ActiveLink>
                     </Nav>
                     <Nav>
                         {
