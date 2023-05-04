@@ -11,8 +11,8 @@ const Main = () => {
            <Header></Header>
             <Container>
                 <Row>
-                   <Col lg={2} sm={1}><HotItems></HotItems></Col>
-                    <Col lg={10} sm={1}><Outlet></Outlet></Col>   
+                    <Col lg={12} sm={1}><Outlet></Outlet></Col>   
+                   <Col lg={6} sm={1}><HotItems></HotItems></Col>
                 </Row>
             </Container>
             <Footer></Footer>
