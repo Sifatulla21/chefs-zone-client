@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Terms = () => {
   return (
-    <Container>
+    <Container className="my-5">
       <Row>
         <Col>
           <h1>Terms and Conditions</h1>
@@ -26,6 +27,7 @@ const Terms = () => {
           <h2>Contact Us</h2>
           <p>If you have any questions or concerns about these terms and conditions, please contact us at [your contact email or address].</p>
           <p>Thank you for using our chef site!</p>
+          <Button><Link className="text-decoration-none text-white" to="/register/">Go To Register</Link></Button>
         </Col>
       </Row>
     </Container>
