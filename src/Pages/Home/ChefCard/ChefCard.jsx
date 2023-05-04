@@ -7,7 +7,6 @@ import LazyLoad from 'react-lazy-load';
 
 const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
-    const [lazyLoader, setLazyLoader] = useState(false);
     const { loading } = useContext(AuthContext);
     useEffect(() => {
         fetch('http://localhost:5000/chef')
@@ -26,11 +25,11 @@ const ChefCard = () => {
 
                         <Col>
                             <Card>
-                                <LazyLoad threshold={0.5} onContentVisible={() => {setLazyLoader(true)}}>
-                                    {
-                                       lazyLoader ? <Card.Img variant="top" src={chef.c_image} />  : <FaHeart style={{fontSize:'xx-large'}}></FaHeart>  
+                                <LazyLoad  offset={1000}>
+                                    
+                                       <Card.Img className="w-100 h-100" variant="top" src={chef.c_image} />
 
-                                    }
+                                  
                                 </LazyLoad>
                                 <Card.Body>
                                     <Card.Title>{chef.c_name}</Card.Title>

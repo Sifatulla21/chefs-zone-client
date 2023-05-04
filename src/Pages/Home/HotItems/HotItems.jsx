@@ -19,13 +19,11 @@ const HotItems = () => {
                         <Col>
                             <Card>
                                 <span className="position-absolute top-0 start-100 translate-middle p-2  rounded-circle"><FaHotjar className="text-danger fs-1"></FaHotjar></span>
-                                    <Card.Img variant="top" src={item.image} />
+                                    <Card.Img className="w-100 h-100" variant="top" src={item.image} />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>
-                                            This is a longer card with supporting text below as a natural
-                                            lead-in to additional content. This content is a little bit
-                                            longer.
+                                            {item.description}
                                         </Card.Text>
                                     </Card.Body>
                             </Card>

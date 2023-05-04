@@ -10,7 +10,7 @@ const DetailsLayout = () => {
              <Header></Header>
             <Container>
                 <Row>
-                    <Col lg={12} sm={1}><Outlet></Outlet></Col>    
+                    <Col lg={12} md={12} sm={1}><Outlet></Outlet></Col>    
                 </Row>
             </Container>
             <Footer></Footer>

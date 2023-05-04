@@ -16,7 +16,7 @@ const Recipes = ({ recipe }) => {
     return (
         <div>
                 <Card className="w-75">
-                    <Card.Img variant="top" src={r_image} />
+                    <Card.Img className="w-100 h-100" variant="top" src={r_image} />
                     <Card.Body className="d-flex align-items-center">
                         <Card.Title className="me-auto">{r_name}</Card.Title>
                         <Rating
