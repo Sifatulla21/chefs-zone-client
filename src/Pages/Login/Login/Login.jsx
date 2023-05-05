@@ -1,21 +1,40 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import app from '../../../Firebase/firebase.config';
 
 const Login = () => {
-    const { signIn, user, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
     const [error,setError]= useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const handleGoogleSignIn = () => {
-        googleSignIn();
+        signInWithPopup(auth,googleProvider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from);
+        })
+        .catch(error =>{
+            console.log("Error:",error.message);
+        })
            
     }
     const handleGitHubSignIn = () => {
-        gitHubSignIn();
+        signInWithPopup(auth,gitHubProvider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from);
+        })
+        .catch(error =>{
+            console.log("Error:",error.message);
+        })
     }
     const handleLogin = event => {
         event.preventDefault();

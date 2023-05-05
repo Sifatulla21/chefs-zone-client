@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
-    const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider(); 
     const gitHubProvider = new GithubAuthProvider();
     const [user, setUser] = useState(null);
     const [loading,setLoading]=useState(true);
@@ -18,7 +18,7 @@ const AuthProvider = ({children}) => {
         signInWithPopup(auth,googleProvider)
         .then(result =>{
             const user = result.user;
-            console.log(user);
+            // console.log(user);
         })
         .catch(error =>{
             console.log("Error:",error.message);
