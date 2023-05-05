@@ -26,11 +26,8 @@ const ChefCard = () => {
 
                         <Col>
                             <Card className="myAnimation" style={{width:'400px'}}>
-                                <LazyLoad  offset={1000}>
-                                    
-                                       <img style={{height:'250px', width:'400px'}}  src={chef.c_image} />
-
-                                  
+                                <LazyLoad once>
+                                       <img style={{height:'250px', width:'400px'}} src={chef.c_image} />                
                                 </LazyLoad>
                                 <Card.Body>
                                     <Card.Title>{chef.c_name}</Card.Title>
