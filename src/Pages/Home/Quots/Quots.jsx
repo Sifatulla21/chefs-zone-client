@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Carousel, Row, Col } from 'react-bootstrap';
+import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 const Quots = () => {
     const [quots, setQuots] = useState([]);
     useEffect(() => {
@@ -21,14 +22,15 @@ const Quots = () => {
                                     <Card.Img className="my-3 rounded" src={quote.image} />
                                 </Col>
                                 <Col md={6}>
-                                    <Card.Body className="pt-5">
+                                    <Card.Body className="mt-5 ms-5">
 
                                         <Card.Title className="fs-1">
                                             {quote.name}
 
                                         </Card.Title>
-                                        <Card.Text className="fs-5 text-danger">
-                                            {quote.quote}
+                                        <Card.Text className="mt-2 w-50 fs-5 text-danger">
+                                            <FaQuoteLeft></FaQuoteLeft>  {quote.quote}
+                                            <FaQuoteRight></FaQuoteRight>
                                         </Card.Text>
                                     </Card.Body>
                                 </Col>

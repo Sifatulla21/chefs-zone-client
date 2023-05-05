@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Card, Carousel, Col, Row } from 'react-bootstrap';
+import { Badge, Card, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { FaHotjar } from 'react-icons/fa';
 
 const HotItems = () => {
@@ -11,15 +11,15 @@ const HotItems = () => {
             .catch(error => console.error(error))
     }, []);
     return (
-        <div>
+        <Container>
             <h1>Hot Items</h1>
-            <Row xs={1} sm={1} md={2} lg={2} className="g-4">
+            <Row xs={1} sm={1} md={2} lg={3} className="g-4">
                 {
-                    hotItems.map(item => <div className="pt-3 " key={item.id}>
+                    hotItems.map(item => <Container className="pt-3 " key={item.id}>
                         <Col>
                             <Card>
                                 <span className="position-absolute top-0 start-100 translate-middle p-2  rounded-circle"><FaHotjar className="text-danger fs-1"></FaHotjar></span>
-                                    <Card.Img className="w-100 h-100" variant="top" src={item.image} />
+                                    <img style={{height:'250px'}}  src={item.image} />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
                                         <Card.Text>
@@ -28,10 +28,10 @@ const HotItems = () => {
                                     </Card.Body>
                             </Card>
                         </Col>
-                    </div>)
+                    </Container>)
                 }
             </Row>
-        </div >
+        </Container>
             );
 };
 

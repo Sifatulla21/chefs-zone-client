@@ -24,10 +24,10 @@ const ChefCard = () => {
                     chefData.map(chef => <div className="mt-3" key={chef.c_id}>
 
                         <Col>
-                            <Card>
+                            <Card style={{width:'400px'}}>
                                 <LazyLoad  offset={1000}>
                                     
-                                       <Card.Img className="w-100 h-100" variant="top" src={chef.c_image} />
+                                       <img style={{height:'250px', width:'400px'}}  src={chef.c_image} />
 
                                   
                                 </LazyLoad>

@@ -16,7 +16,7 @@ const Recipes = ({ recipe }) => {
     return (
         <div>
                 <Card className="w-75">
-                    <Card.Img className="w-100 h-100" variant="top" src={r_image} />
+                    <img style={{height:'250px'}} src={r_image} />
                     <Card.Body className="d-flex align-items-center">
                         <Card.Title className="me-auto">{r_name}</Card.Title>
                         <Rating
@@ -30,7 +30,7 @@ const Recipes = ({ recipe }) => {
                     </Card.Body>
                     <ListGroup  style={{minHeight:'150px'}} className="list-group-flush">
                         <ListGroup.Item><strong>Ingredients:</strong> {ingredients}</ListGroup.Item>
-                        <ListGroup.Item><strong>Cooking Method:</strong> {cooking_method}</ListGroup.Item>
+                        <ListGroup.Item style={{height:'50px'}}><strong>Cooking Method:</strong> {cooking_method}</ListGroup.Item>
                     </ListGroup>
                     <Card.Body className="d-flex justify-content-center">
                         <Link to=""><Button  disabled={!loved} onClick={handleFavourite} variant="outline-danger" size="lg"><FaHeart></FaHeart> Add To Favourite</Button></Link>
