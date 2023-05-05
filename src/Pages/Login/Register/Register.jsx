@@ -1,14 +1,43 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import app from '../../../Firebase/firebase.config';
+import './Register.css'
 
 const Register = () => {
     const {createUser, updateUser } = useContext(AuthContext);
-    
+    const googleProvider = new GoogleAuthProvider(); 
+    const gitHubProvider = new GithubAuthProvider();
+    const auth = getAuth(app);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const [accepted,setAccepted] = useState(false);
     const [error,setError]= useState('');
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth,googleProvider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from);
+        })
+        .catch(error =>{
+            console.log("Error:",error.message);
+        })
+           
+    }
+    const handleGitHubSignIn = () => {
+        signInWithPopup(auth,gitHubProvider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from);
+        })
+        .catch(error =>{
+            console.log("Error:",error.message);
+        })
+    }
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -33,7 +62,8 @@ const Register = () => {
         setAccepted(form);
     }
     return (
-        <Container style={{marginBottom:'155px'}} className="w-25 mx-auto">
+        <div className="my-5 d-flex justify-content-center">
+            <div className="registrationForm">
             <h1>Please Register</h1>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -65,7 +95,7 @@ const Register = () => {
                      type="checkbox" name="accept"
                      label= {<>Accept <Link to="/terms">Terms And Conditions</Link></>} />
                 </Form.Group>
-                <Button disabled={!accepted} variant="primary" type="submit">
+                <Button className="w-100" disabled={!accepted} variant="primary" type="submit">
                     Register
                 </Button>
                 <br />
@@ -73,7 +103,14 @@ const Register = () => {
                    Already Register? <Link to="/login/">Login</Link>
                 </Form.Text>
             </Form>
-        </Container>
+            <hr />
+            <h5 className="text-center">Or Login With</h5>
+            <div className="d-flex flex-column mt-1">
+                <Button className="mb-2" onClick={handleGoogleSignIn} variant="outline-primary"><FaGoogle></FaGoogle> Google</Button>
+                <Button onClick={handleGitHubSignIn} variant="outline-dark"><FaGithub></FaGithub> Git Hub</Button>
+            </div>
+            </div>
+        </div>
     );
 };
 

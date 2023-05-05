@@ -13,11 +13,11 @@ const HotItems = () => {
     return (
         <Container>
             <h1>Hot Items</h1>
-            <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+            <Row xs={1} sm={1} md={2} lg={3} className="g-4 mt-5">
                 {
                     hotItems.map(item => <Container className="pt-3 " key={item.id}>
                         <Col>
-                            <Card>
+                            <Card className="myAnimation">
                                 <span className="position-absolute top-0 start-100 translate-middle p-2  rounded-circle"><FaHotjar className="text-danger fs-1"></FaHotjar></span>
                                     <img style={{height:'250px'}}  src={item.image} />
                                     <Card.Body>

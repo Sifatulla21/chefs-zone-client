@@ -14,7 +14,7 @@ const ChefDetails = () => {
                     <div className="mt-3 d-flex border border-dark rounded">
                     
                         <div>
-                            <img className="img-fluid rounded" src={c_image} alt="" />
+                            <img style={{width:"90%"}} className="img-fluid rounded" src={c_image} alt="" />
                         </div>
                         <div className="d-flex flex-column align-items-center mt-3">
                             <h1>{c_name}</h1> <br />

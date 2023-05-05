@@ -4,6 +4,7 @@ import { FaHeart, FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import LazyLoad from 'react-lazy-load';
+import '../../Shared/Animation/Animation.css'
 
 const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
@@ -24,7 +25,7 @@ const ChefCard = () => {
                     chefData.map(chef => <div className="mt-3" key={chef.c_id}>
 
                         <Col>
-                            <Card style={{width:'400px'}}>
+                            <Card className="myAnimation" style={{width:'400px'}}>
                                 <LazyLoad  offset={1000}>
                                     
                                        <img style={{height:'250px', width:'400px'}}  src={chef.c_image} />

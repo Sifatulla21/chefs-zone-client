@@ -1,0 +1,12 @@
+.registrationForm{
+        background-color: rgba(75, 112, 112, 0.096);
+        width: 500px;
+        height: 750px;
+        padding: 50px;
+        box-shadow: rgba(0, 0, 0, 0.479) 0px 54px 55px, rgba(0, 0, 0, 0.397) 0px -12px 30px, rgba(0, 0, 0, 0.342) 0px 4px 6px, rgba(0, 0, 0, 0.322) 0px 12px 13px, rgba(0, 0, 0, 0.315) 0px -3px 5px;                
+        transform: scale(1);
+        transition: transform 0.2s ease-in-out;
+}             
+.registrationForm:hover {
+    transform: scale(1.05);
+}

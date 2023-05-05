@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, ListGroup } from 'react-bootstrap';
+import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ const Recipes = ({ recipe }) => {
     const { r_name, r_image, ingredients, cooking_method, rating } = recipe;
     return (
         <div>
-                <Card className="w-75">
+                <Card className="gap-0 w-75 myAnimation">
                     <img style={{height:'250px'}} src={r_image} />
                     <Card.Body className="d-flex align-items-center">
                         <Card.Title className="me-auto">{r_name}</Card.Title>
